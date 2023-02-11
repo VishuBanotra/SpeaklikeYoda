@@ -15,11 +15,12 @@ function errorHandler(error) {
 
 button.addEventListener("click", function () {
   let txt_input = inputText.value;
+  
   fetch(translatedTextUrl(txt_input))
     .then((response) => response.json())
     .then((json) => {
-        let trasnlatedText = json.contents.translated;
-        output_text.innerHTML = trasnlatedText;
+        let translatedText = json.contents.translated;
+        output_text.innerText = translatedText;
     })
-    .catch(errorHandler)
+    .catch(errorHandler);
 });
